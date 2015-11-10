@@ -11,11 +11,11 @@ Once installed locally, execute the program with the following command:
 
 Five command line arguments are required:
 
-1. `24` Peak number of developers working concurrently
-2. `5` Average number of builds per developer for that peak shift
-3. `20` Average build duration in minutes
+1. `24`  Peak number of developers working concurrently
+2. `5`   Average number of builds per developer for that peak shift
+3. `20`  Average build duration in minutes
 4. `.10` Acceptable probability of a 5 minute wait time for build to start
-5. `0` Acceptable probability of 30 minute wait time for build to start
+5. `0`   Acceptable probability of 30 minute wait time for build to start
 
 (Note: the code uses ECMA6 syntax, so you'll need to add the --harmony flag)
 
