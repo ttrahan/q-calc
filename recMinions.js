@@ -1,12 +1,12 @@
 'use strict';
 
 const async = require('async');
-const queueInfinite = require('./modules-async-seq/1_queueInfiniteCalcs-module.js');
-const expectedWaitTimes = require('./modules-async-seq/2_expectedWaitTimes-module.js');
-const recommendedMinions = require('./modules-async-seq/3_recommendedMinions-module.js');
-const writeToFile = require('./modules-async-seq/writeToFile-module.js');
-const printResults = require('./modules-async-seq/printResults.js');
-const roundNum = require('./modules-async-seq/roundNum-module.js');
+const queueInfinite = require('./modules/1_queueInfiniteCalcs-module.js');
+const expectedWaitTimes = require('./modules/2_expectedWaitTimes-module.js');
+const recommendedMinions = require('./modules/3_recommendedMinions-module.js');
+const writeToFile = require('./modules/writeToFile-module.js');
+const printResults = require('./modules/printResults.js');
+const roundNum = require('./modules/roundNum-module.js');
 
 
 // user must provide 5 command line arguments:
@@ -57,6 +57,9 @@ calcQueueingModelResults(function(err, result) {
   printResults('');
   printResults('*** Recommended minion count: ' + result[0] + ' ***');
   printResults('');
+  printResults('Probability of X minute wait time for specified number of minions:');
   printResults(result[1]);
+  printResults('');
+  printResults(result[2]);
   printResults('');
 });

@@ -14,6 +14,7 @@ module.exports = function recommendedMinions(probAcceptable5MinWait,
   const position5 = 2;
   const position30 = 7;
   const probTimes = priorResults[0];
+  const queueStats = priorResults[1];
 
   for (let j=1; j<=probTimes.length - 1; j++) {
     let numBuildMinions = probTimes[j][0];
@@ -21,7 +22,7 @@ module.exports = function recommendedMinions(probAcceptable5MinWait,
     let prob30 = probTimes[j][position30 - 1];
     if( prob5 <= max5 && prob30 <= max30) {
       let recommendedMinionCount = numBuildMinions;
-      return results(null, [recommendedMinionCount, probTimes]);
+      return results(null, [recommendedMinionCount, probTimes, queueStats]);
     }
   }
 };

@@ -1,85 +1,59 @@
 # queue-calculator
 
-## Demo
-NOTE: replace all 'http' with 'https' if using 'https' (set in `config.json`)
-- [Website](http://162.243.148.119:3000/)
-- [Continuous Integration](http://162.243.148.119:3010/)
-	- This automatically deploys and tests the yeoman generated mean-seed website on each Github push (from local development)
-- Test Coverage Reports (currently ~90% frontend coverage, ~60% backend coverage)
-	- [Node API/Integration Test Coverage](http://162.243.148.119:3000/src/coverage-node/lcov-report/)
-	- [Angular Karma Unit Test Coverage](http://162.243.148.119:3000/src/coverage-angular/PhantomJS%201.9.8%20%28Linux%29/)
-- [Backend API Interactive Docs](http://162.243.148.119:3000/api/help)
-	- i.e. [Auth API](http://162.243.148.119:3000/api/auth/help)
-- [Github Repo with Generated Code](https://github.com/jackrabbitsgroup/mean-seed-gen)
+## Overview
+This is an infinite queueing model calculator altered with language appropriate
+to calculating the number of Continuous Integration build machines needed to
+ensure sufficient capacity to limit wait times in the queue to the desired levels.
 
+## Use
+Once installed locally, execute the program with the following command:  
+```node --harmony recMinions 24 5 20 .10 0```
 
-## Learn to Code with MEAN Stack
-[Walkthrough course to use this Generator and MEAN stack in general](https://www.packtpub.com/web-development/mastering-mean-web-development-video)
+Five command line arguments are required:
 
+1. Peak number of developers in organization working concurrently
+2. Average number of builds per developer for that peak shift
+3. Average build duration
+4. Acceptable probability of a 5 minute wait time for build to start
+5. Acceptable probability of 30 minute wait time for build to start
 
-## Quick Start
+(Note: the code uses ECMA6 syntax, so you'll need to add the --harmony flag)
 
-**NOTE: If you want to CLONE this EXISTING repository, see [cloning.md](docs/setup-running/cloning.md) instead.** Otherwise, if you want to build a NEW mean-seed from scratch using the Yeoman Generator, follow these steps below.
-
-1. machine (global / program) installs (if you don't have them already)
-	1. install git, nodejs, mongodb, phantomjs
-	2. `sudo npm install -g grunt-cli yo bower generator-mean-seed yuidocjs forever less`
-2. `yo mean-seed` (from the NEW directory you want to create the app in)
-	1. `npm install && bower install` (if not already run successfully by Yeoman or any time `package.json` or `bower.json` change)
-		1. If any bower issues (sometimes 1 or more packages will timeout), just re-run `bower update && bower install`
-		2. If any npm issues, run `npm cache clean` (and optionally delete the troublesome package folders from the `node_modules` folder) then re-run `npm install`
-	2. `./node_modules/protractor/bin/webdriver-manager update` (if not already run successfully by Yeoman)
-	3. `grunt q` to build assets (if not already run successfully by Yeoman and any time a `*.less` (or `*.scss`) or `*.html` file changes)
-3. start server and view app
-	1. `node run.js` to start node server (make sure MongoDB is already running first)
-	2. open a browser to `http://localhost:3000/` (or `https://localhost:3000/` if using https) to view the site/app
-4. run tests
-	1. `grunt`
-5. (optional) Git remote (should have already been init'ed and commit'ed automatically)
-	1. (optional) add a remote: `git remote add origin [url to repository]`
-
-
-
-## Setup + Running (Longer Version)
-- see [setup-detailed.md](docs/setup-running/setup-detailed.md) and [running.md](docs/setup-running/running.md) in the `docs` folder
-
-
-## Generators
-Make sure to leverage the available (sub)generators - i.e. for creating new pages/routes/controllers, directives, and services!
-Run generators with `yo mean-seed` and then select the sub-generator you want to use!
-
-https://github.com/jackrabbitsgroup/generator-mean-seed/blob/master/docs/generators/modules.md
-
-
-
-## Updating
-You CAN and SHOULD keep your project up to date with the core (seed) generator you used as it goes through version upgrades. Just re-run:
-
-Ensure the generator is up to date:
-```
-npm install -g generator-mean-seed
+## Output
+The output will display the recommended number of minions based on the parameters
+provided, as follows:
 ```
 
-Pull in updates to your project (core/seed - make sure to select the same core you used originally):
-```
-yo mean-seed
-```
-	
-	
-## More Info
-- see the [docs](docs) folder for more documentation. Each (sub)folder typically has an `overview.md` file - start there. Some key docs (roughly in order of priority) listed below:
-	- [overview.md](docs/overview.md)
-	- [setup-running folder](docs/setup-running)
-		- [overview.md](docs/setup-running/overview.md)
-	- [tools-dependencies folder](docs/tools-dependencies)
-	- [files folder](docs/files)
-	- [testing-automation folder](docs/testing-automation)
-	- [frontend-angular/common-actions.md](docs/frontend-angular/common-actions.md)
-	- [backend-node/common-actions.md](docs/backend-node/common-actions.md)
+*** Recommended minion count: 8 ***
 
-	
+Probability of X minute wait time for specified number of minions:
+[ [ 'Minions', 5, 10, 15, 20, 25, 30, 45, 60 ],
+  [ 5, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN ],
+  [ 6, 0.46, 0.36, 0.28, 0.22, 0.17, 0.13, 0.06, 0.03 ],
+  [ 7, 0.2, 0.12, 0.07, 0.04, 0.03, 0.02, 0, 0 ],
+  [ 8, 0.08, 0.04, 0.02, 0.01, 0, 0, 0, 0 ],
+  [ 9, 0.03, 0.01, 0, 0, 0, 0, 0, NaN ],
+  [ 10, 0.01, 0, 0, 0, 0, 0, NaN, NaN ],
+  [ 11, 0, 0, 0, 0, 0, 0, NaN, NaN ],
+  [ 12, 0, 0, 0, 0, NaN, NaN, NaN, NaN ] ]
 
-## MEAN (Mongo Express Angular Node) seed
-- Built using Mean-Seed: https://github.com/jackrabbitsgroup/generator-mean-seed
-	- see here for more details - technology used, dependencies, limitations/compatibility, code standards, directory/file structure, workflow, etc.
-- *MongoDB, Express.js, AngularJS, Node.js + Yeoman (Grunt, Bower, Yo) + Jasmine, Karma, Protractor*
+[ [ 'numMinions',
+    'avgNumWaiting',
+    'avgWaitDuration',
+    'avgMinionUtilization' ],
+  [ 5, NaN, NaN, 1 ],
+  [ 6, 2.938, 11.75, 0.833 ],
+  [ 7, 0.81, 3.241, 0.714 ],
+  [ 8, 0.279, 1.115, 0.625 ],
+  [ 9, 0.101, 0.403, 0.556 ],
+  [ 10, 0.036, 0.144, 0.5 ],
+  [ 11, 0.013, 0.05, 0.455 ],
+  [ 12, 0.004, 0.017, 0.417 ] ]
+
+```  
+
+The first table above contains headers in the first row with the first column
+indicating the number minions and the following columns representing the wait time
+in minutes for a build to wait in the queue before starting.  For example, in the above data,
+there is an 8% probability that a build will incur a 5 minute wait time if 8 minions
+are available for use and a 20% probability if 7 minions are in use.
