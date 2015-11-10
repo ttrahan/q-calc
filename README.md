@@ -2,7 +2,7 @@
 
 ## Overview
 This is an infinite queueing model calculator altered with language appropriate
-to calculating the number of Continuous Integration build machines needed to
+for calculating the number of Continuous Integration build machines needed to
 ensure sufficient capacity to limit wait times in the queue to the desired levels.
 
 ## Use
@@ -11,7 +11,7 @@ Once installed locally, execute the program with the following command:
 
 Five command line arguments are required:
 
-1. Peak number of developers in organization working concurrently
+1. Peak number of developers working concurrently
 2. Average number of builds per developer for that peak shift
 3. Average build duration
 4. Acceptable probability of a 5 minute wait time for build to start
