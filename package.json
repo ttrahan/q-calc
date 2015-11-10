@@ -1,0 +1,13 @@
+{
+	"author": "Tom Trahan <tom.trahan@gmail.com>",
+	"name": "queue-calculator",
+	"version": "0.0.1",
+	"description": "Calculator for infinite queueing models",
+	"homepage": "https://github.com/ttrahan/q-calc",
+	"dependencies": {
+		"async": "1.4.2"
+	},
+	"engines":{
+		"node":"0.11.2"
+	}
+}
