@@ -15,7 +15,7 @@ module.exports = function expectedWaitTimes(lambda, mu, priorResults, results) {
 
   const queueStats = priorResults;
   const resultsExpectedWaitAll = [];
-  const minuteBuckets = ['Minions', 5, 10, 15, 20, 25, 30, 45, 60];  // array of wait values in minutes to calc prob for
+  const minuteBuckets = ['Minions', 0.5, 5, 10, 15, 20, 25, 30, 45, 60];  // array of wait values in minutes to calc prob for
   resultsExpectedWaitAll.push(minuteBuckets);
 
   let k = queueStats.length;
