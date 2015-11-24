@@ -61,5 +61,5 @@ indicating the number of minions and the following columns representing the wait
 in minutes for a build to wait in the queue before starting.  The data in the table
 indicates the probability of a build waiting for a particular number of minutes given
 the specified number of minions.  For example, in the above data, there is an
-8% probability that a build will incur a 5 minute wait time if 8 minions are
-available for use and a 20% probability if 7 minions are in use.
+31% probability that a build will incur a 5 minute wait time if 8 minions are
+available for use and a 65% probability if 7 minions are in use.
