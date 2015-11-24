@@ -1,7 +1,7 @@
 # queue-calculator
 
 ## Overview
-This is an infinite queueing model calculator altered with language appropriate
+This is an infinite queueing model calculator, written in Node.js, altered with language appropriate
 for calculating the number of Continuous Integration build machines needed to
 ensure sufficient capacity to limit wait times in the queue to the desired levels.
 
