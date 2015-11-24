@@ -11,20 +11,21 @@ const roundNum = require('./modules/roundNum-module.js');
 
 // user must provide 5 command line arguments:
 // 1: number of developers
-// 2: number of builds each developer builds per shift
+// 2: number of builds each developer builds per peak period
 // 3: the duration of the average build in their organization
 // 4: the acceptable probability of a CI build waiting 5 minutes in the queue, i.e. 1 out of 10 builds wait 5 minutes (.10)
 // 5: same as 4, but for 30 minute wait
+// 6: the duration of the peak period - if no peak, enter time for entire work shift, e.g. 8 hours
 
-const numDev = process.argv[2]; // peak number of developers in organization working concurrently
-const numBuildsShift = process.argv[3]; // avg number of builds per peak shift per developer
-const avgBuildDurationMin = process.argv[4]; // average build duration
+const numDevPeak = process.argv[2]; // peak number of developers in organization working concurrently
+const numBuildsPerDevPeak = process.argv[3]; // avg number of builds per peak shift per developer
+const peakDurationHours = process.argv[4]; // duration in hours of peak period - if no peak, enter time for entire work shift, e.g. 8 hours
+const avgBuildDurationMin = process.argv[5]; // average build duration
 const numShifts = 1; // number of developer shifts (i.e. 1 for single group of devs, 2 for U.S. and India, or 3 for 24-hr development)
 const s = 10000;  // max number of build containers to calculate Queue stats for
-const probAcceptable5MinWait = process.argv[5]; // acceptable probability of 5 minute wait time for build to start
-const probAcceptable30MinWait = process.argv[6]; // acceptable probability of 30 minute wait time for build to start
-const shiftDurationHours = 8; // shift duration in hours
-const lambda = (numDev * numBuildsShift) / shiftDurationHours / numShifts;  // arrival rate per hour
+const probAcceptable5MinWait = process.argv[6]; // acceptable probability of 5 minute wait time for build to start
+const probAcceptable30MinWait = process.argv[7]; // acceptable probability of 30 minute wait time for build to start
+const lambda = (numDevPeak * numBuildsPerDevPeak) / peakDurationHours / numShifts;  // arrival rate per hour
 const mu = 60 / avgBuildDurationMin; // hourly service rate, i.e.
 
 // verify that valid inputs were provided as arguments

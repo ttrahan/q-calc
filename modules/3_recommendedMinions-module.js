@@ -11,15 +11,15 @@ module.exports = function recommendedMinions(probAcceptable5MinWait,
 
   const max5 = probAcceptable5MinWait;
   const max30 = probAcceptable30MinWait;
-  const position5 = 2;
-  const position30 = 7;
   const probTimes = priorResults[0];
   const queueStats = priorResults[1];
+  const position5 = probTimes[0].indexOf(5); //array position of 5 min wait times
+  const position30 = probTimes[0].indexOf(30); //array position of 30 min wait times
 
   for (let j=1; j<=probTimes.length - 1; j++) {
     let numBuildMinions = probTimes[j][0];
-    let prob5 = probTimes[j][position5 - 1];
-    let prob30 = probTimes[j][position30 - 1];
+    let prob5 = probTimes[j][position5];
+    let prob30 = probTimes[j][position30];
     if( prob5 <= max5 && prob30 <= max30) {
       let recommendedMinionCount = numBuildMinions;
       return results(null, [recommendedMinionCount, probTimes, queueStats]);
