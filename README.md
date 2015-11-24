@@ -18,7 +18,8 @@ Six command line arguments are required:
 5. `.10` Acceptable probability of a 5 minute wait time for build to start
 6. `0`   Acceptable probability of 30 minute wait time for build to start
 
-If no peak period, default to figures for an entire shift, e.g. 8 hours.
+If no peak period, I recommend defaulting to figures for an entire shift, e.g. 8 hours:
+```node --harmony recMinions 24 5 8 20 .10 0```
 
 (Note: the code uses ECMA6 syntax, so you'll need to add the --harmony flag)
 
