@@ -26,7 +26,7 @@ module.exports = function queueInfinite(lambda, mu, s, results) {
     let avgMinionUtilization = (lambda / (mu * j));
 
     resultsInfiniteNumMinions[0] = Number(j);  // number of build minions
-    if (avgNumWaiting < 0 || avgWaitDuration < 0.01) {  // 0.01 minutes = 36 seconds
+    if (avgNumWaiting < 0 || avgWaitDuration < 0.01) {  // stop processing if results become insignificant - 0.01 minutes = 36 seconds
       continue;
     } else {
     resultsInfiniteNumMinions[1] = roundNum(avgNumWaiting, 3);

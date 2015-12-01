@@ -21,11 +21,10 @@ const numDevPeak = process.argv[2]; // peak number of developers in organization
 const numBuildsPerDevPeak = process.argv[3]; // avg number of builds per peak shift per developer
 const peakDurationHours = process.argv[4]; // duration in hours of peak period - if no peak, enter time for entire work shift, e.g. 8 hours
 const avgBuildDurationMin = process.argv[5]; // average build duration
-const numShifts = 1; // number of developer shifts (i.e. 1 for single group of devs, 2 for U.S. and India, or 3 for 24-hr development)
 const s = 10000;  // max number of build containers to calculate Queue stats for
 const probAcceptable5MinWait = process.argv[6]; // acceptable probability of 5 minute wait time for build to start
 const probAcceptable30MinWait = process.argv[7]; // acceptable probability of 30 minute wait time for build to start
-const lambda = (numDevPeak * numBuildsPerDevPeak) / peakDurationHours / numShifts;  // arrival rate per hour
+const lambda = (numDevPeak * numBuildsPerDevPeak) / peakDurationHours ;  // arrival rate per hour
 const mu = 60 / avgBuildDurationMin; // hourly service rate, i.e.
 
 // verify that valid inputs were provided as arguments
