@@ -41,8 +41,8 @@ const eWT = async.apply(expectedWaitTimes, lambda, mu);
 //third function that must run with its parameters
 const rM = async.apply(recommendedMinions, probAcceptable5MinWait, probAcceptable30MinWait);
 
-//composition of all three functions.  Results of each function are passed to the
-//next function as a parameter appended to those already provided above.
+//composition of all three functions.  Results of each function are passed to
+//the next function as a parameter appended to those already provided above.
 const calcQueueingModelResults = async.seq(qI, eWT, rM);
 
 //calculate the queuing model results and return the results to the console
