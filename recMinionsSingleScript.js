@@ -79,6 +79,7 @@ function queueInfinite(lambda, mu, s, results) {
   return results(null, resultsInfiniteAll);
 }
 
+// second task in execution workflow
 function expectedWaitTimes(lambda, mu, priorResults, results) {
   // For reference:
   // first row of queueStats contains headers
@@ -112,7 +113,7 @@ function expectedWaitTimes(lambda, mu, priorResults, results) {
   return results(null, [resultsExpectedWaitAll, queueStats]);
 }
 
-// third function
+// second task in execution workflow
 function recommendedMinions(probAcceptable30secWait, priorResults, results) {
   // For reference:
   // first row of probTimes contains headers for the queue wait time in minutes
