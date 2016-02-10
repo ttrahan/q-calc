@@ -119,8 +119,8 @@ function recommendedMinions(probAcceptable30secWait, priorResults, results) {
   // first row of probTimes contains headers for the queue wait time in minutes
   // the subsequent rows contain the number of concurrent minions available followed
   // by the probability of a build waiting for the designated wait time, e.g.
-  // .26 corresponding to the 5 column means a 26% probability a build will wait
-  // in the queue for at least 5 minutes before starting to process.
+  // .85 corresponding to the 5 column means a 85% probability a build will wait
+  // in the queue for less than 5 minutes before starting to process.
 
   var max30s = probAcceptable30secWait;
   var probTimes = priorResults[0];
