@@ -11,8 +11,7 @@ var async = require('async');
 
 // user must provide the following command line arguments:
 // 1: number of builds (commits + PRs) submitted during peak hour
-// 4: the duration of the average build in their organization
-// 5: the acceptable probability of a CI build waiting 30 seconds in the queue, i.e. 99 out of 100 builds wait <=30 sec (.99)
+// 2: the duration of the average build in their organization
 
 var numBuildsAtPeak = process.argv[2] || 12; // avg number of builds per peak shift per developer
 var avgBuildDurationMin = process.argv[3] || 20; // average build duration
