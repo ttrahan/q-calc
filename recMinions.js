@@ -9,13 +9,14 @@ const printResults = require('./modules/printResults.js');
 const roundNum = require('./modules/roundNum-module.js');
 
 
-// user must provide 5 command line arguments:
-// 1: number of developers
-// 2: number of builds each developer builds per peak period
-// 3: the duration of the average build in their organization
-// 4: the acceptable probability of a CI build waiting 5 minutes in the queue, i.e. 1 out of 10 builds wait 5 minutes (.10)
-// 5: same as 4, but for 30 minute wait
-// 6: the duration of the peak period - if no peak, enter time for entire work shift, e.g. 8 hours
+// user must provide the following command line arguments:
+// 1: number of developers during peak period
+// 2: number of builds each developer builds per peak period (commits + PRs)
+// 3: the duration of the peak period in hours - if no peak, enter time for entire work shift, e.g. 8 hours
+// 4: the duration of the average build in their organization
+// 5: the acceptable probability of a CI build waiting 5 minutes in the queue, i.e. 1 out of 10 builds wait 5 minutes (.10)
+// 6: same as 5, but for 30 minute wait
+
 
 const numDevsPeak = process.argv[2]; // peak number of developers in organization working concurrently
 const numBuildsPerDevPeak = process.argv[3]; // avg number of builds per peak shift per developer
