@@ -40,7 +40,7 @@ calcQueueingModelResults(function(err, result) {
   printResults('');
   printResults('*** Recommended minion count: ' + result[0] + ' ***');
   printResults('');
-  printResults('Probability of X minute wait time for specified number of minions:');
+  printResults('Probability of waiting less than X minutes for specified number of minions:');
   printResults(result[1]);
 });
 
