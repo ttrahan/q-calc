@@ -63,3 +63,5 @@ indicates the probability of a build waiting for a particular number of minutes 
 the specified number of minions.  For example, in the above data, there is an
 31% probability that a build will incur a 5 minute wait time if 8 minions are
 available for use and a 65% probability if 7 minions are in use.
+
+Note: for a simplified version with only two inputs, execute the recMinionsSingleFile version.  You provide inputs for number of builds during the peak hour and the average build duration.  It assumes the calculations are based on an acceptable wait time of 30s being <1%.
