@@ -65,3 +65,6 @@ the specified number of minions.  For example, in the above data, there is an
 available for use and a 65% probability if 7 minions are in use.
 
 Note: for a simplified version with only two inputs, execute the `recMinionsSingleScript` version.  You provide inputs for number of builds during the peak hour and the average build duration.  It assumes the calculations are based on an acceptable wait time of 30s being <1%.
+
+To run simplified version:
+```node --harmony recMinionsSingleScript 10 20```
